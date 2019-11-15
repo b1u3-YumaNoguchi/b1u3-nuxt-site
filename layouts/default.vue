@@ -2,27 +2,45 @@
   <v-app>
     <v-content class="pt-3 b1u3-site">
       <v-container class="b1u3-blog-container">
-        <h1>
-          TITLE
-        </h1>
-        <hr>
-        <h1>
-          UPDATED
-        </h1>
-        <!-- ここに 1 * 3 の画像リスト置く -->
-        <hr>
-        <h1>
-          POSTS
-        </h1>
-        <!-- ここから for で回す -->
-        <p>YYYY-MM-DD</p>
-        <hr>
-        <h3>
-          最新ブログ1
-        </h3>
-        <p>ブログ内容</p>
-        <button>コメントを書く</button>
-        <!-- ここまで for する -->
+        <v-row>
+          <v-col class="flex-grow-1">
+            <v-card>
+              <h1>
+                TITLE
+              </h1>
+              <hr>
+              <h1>
+                UPDATED
+              </h1>
+              <!-- ここに 1 * 3 の画像リスト置く -->
+              <hr>
+              <h1>
+                POSTS
+              </h1>
+              <!-- ここから for で回す -->
+              <p>YYYY-MM-DD</p>
+              <hr>
+              <h3>
+                最新ブログ1
+              </h3>
+              <p>ブログ内容</p>
+              <button>コメントを書く</button>
+              <!-- ここまで for する -->
+            </v-card>
+          </v-col>
+          <v-col cols="4" class="hidden-sm-and-down">
+            <v-card>
+              <h1>
+                プロフィール
+              </h1>
+              <hr>
+              <h1>
+                ツイッターのTL
+              </h1>
+              <!-- ここに 1 * 3 の画像リスト置く -->
+            </v-card>
+          </v-col>
+        </v-row>
       </v-container>
     </v-content>
   </v-app>
