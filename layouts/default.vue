@@ -4,41 +4,92 @@
       <v-container class="b1u3-blog-container">
         <v-row>
           <v-col class="flex-grow-1">
-            <v-card>
-              <h1>
-                TITLE
-              </h1>
-              <hr>
-              <h1>
-                UPDATED
-              </h1>
-              <!-- ここに 1 * 3 の画像リスト置く -->
-              <hr>
-              <h1>
-                POSTS
-              </h1>
-              <!-- ここから for で回す -->
-              <p>YYYY-MM-DD</p>
-              <hr>
+            <h1>
+              TITLE
+            </h1>
+            <hr>
+            <h1>
+              UPDATED
+            </h1>
+            <!-- ここに 1 * 3 の画像リスト置く -->
+            <hr>
+            <h1>
+              POSTS
+            </h1>
+            <!-- ここから for で回す -->
+            <div class="b1u3-blog-post">
+              <p style="margin-bottom: 0px;">
+                YYYY-MM-DD
+              </p>
+              <v-divider />
               <h3>
                 最新ブログ1
               </h3>
+              <v-chip x-small color="red" text-color="white">
+                カテゴリー1
+              </v-chip>
+              <v-chip x-small color="green" text-color="white">
+                カテゴリー2
+              </v-chip>
               <p>ブログ内容</p>
               <button>コメントを書く</button>
-              <!-- ここまで for する -->
-            </v-card>
+            </div>
+            <!-- ここまで for する -->
+            <div class="b1u3-blog-post pt-10">
+              <p style="margin-bottom: 0px;">
+                YYYY-MM-DD
+              </p>
+              <v-divider />
+              <h3>
+                最新ブログ2
+              </h3>
+              <v-chip x-small color="red" text-color="white">
+                カテゴリー1
+              </v-chip>
+              <v-chip x-small color="green" text-color="white">
+                カテゴリー2
+              </v-chip>
+              <p>ブログ内容</p>
+              <button>コメントを書く</button>
+            </div>
           </v-col>
           <v-col cols="4" class="hidden-sm-and-down">
-            <v-card>
-              <h1>
-                プロフィール
-              </h1>
-              <hr>
-              <h1>
-                ツイッターのTL
-              </h1>
-              <!-- ここに 1 * 3 の画像リスト置く -->
-            </v-card>
+            <h1>
+              プロフィール
+            </h1>
+            <!-- 遅延読み込みの v-img は、自前のassetsから参照できない -->
+            <!--
+            <v-img
+              src="/assets/syoumeisyashin_man.png"
+            >
+            </v-img>
+            -->
+            <!-- html 側に、width, height を書くとそっちに調整される。縦横も維持されない -->
+            <v-row justify="center">
+              <img
+                src="@/assets/syoumeisyashin_man.png"
+                style="height: 150px;"
+              >
+            </v-row>
+            <p>えぬわいっていいます。技術ブログやってます。</p>
+            <v-text-field
+              placeholder="SEARCH"
+              append-icon="mdi-magnify"
+            />
+            <hr>
+            <h1>
+              ツイッターのTL
+            </h1>
+            <h1>
+              カテゴリー
+            </h1>
+            <v-chip small color="red" text-color="white">
+              カテゴリー1
+            </v-chip>
+            <v-chip small color="green" text-color="white">
+              カテゴリー2
+            </v-chip>
+            <!-- ここに 1 * 3 の画像リスト置く -->
           </v-col>
         </v-row>
       </v-container>
