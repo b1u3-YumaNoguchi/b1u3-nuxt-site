@@ -1,5 +1,9 @@
 <template>
-  <nuxt />
+  <v-app>
+    <v-content class="pt-3 b1u3-site">
+      <nuxt />
+    </v-content>
+  </v-app>
 </template>
 
 <script>
