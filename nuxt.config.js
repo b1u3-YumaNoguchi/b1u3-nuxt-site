@@ -1,4 +1,5 @@
 const colors = require('vuetify/es5/util/colors').default
+const config = require('./firebase.json')
 
 module.exports = {
   mode: 'universal',
@@ -44,8 +45,37 @@ module.exports = {
   */
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    "nuxt-fire"
   ],
+  //Nuxt-Fire Module Options
+  fire: {
+    config,
+    services: {
+      auth: true,
+      firestore: true,
+      functions: true,
+      storage: true,
+      realtimeDb: true,
+      performance: true,
+      analytics: true,
+      remoteConfig: {
+        settings: {
+          fetchTimeoutMillis: 60000,
+          minimumFetchIntervalMillis: 43200000
+        },
+        defaultConfig: {
+          welcome_message: "Welcome"
+        }
+      },
+      messaging: {
+        createServiceWorker: true,
+        onFirebaseHosting: true
+      }
+    }
+  },
+
+
   /*
   ** Axios module configuration
   ** See https://axios.nuxtjs.org/options
