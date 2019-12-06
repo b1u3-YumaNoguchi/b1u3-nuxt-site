@@ -90,4 +90,4 @@ sw.*
 *.swp
 
 # remove firebase key
-firebase.json
+*.json
