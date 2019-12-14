@@ -1,0 +1,1 @@
+[ ] storeのアクションに、非同期でfirebaseからmessageを取ってくるサンプルをpages/sample.vueに実装する

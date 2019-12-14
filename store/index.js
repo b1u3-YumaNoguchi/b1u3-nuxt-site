@@ -1,11 +1,16 @@
 export const state = () => ({
-  counter: 0
+  counter: 0,
+  updated_posts: [],
+  message: ''
 })
 
 // mutations は store の state を変える関数群
 export const mutations = {
   increment (state) {
     state.counter++
+  },
+  set_message (state, msg) {
+    state.message = msg
   }
 }
 
@@ -13,5 +18,8 @@ export const mutations = {
 export const actions = {
   increment (context) {
     context.commit('increment')
+  },
+  set_message ({ commit }, msg) {
+    commit('set_message', msg)
   }
 }

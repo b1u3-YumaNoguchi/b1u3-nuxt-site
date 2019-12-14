@@ -29,10 +29,13 @@
         </tr>
       </tbody>
     </v-simple-table>
+    <p> message: {{ $store.state }} </p>
   </div>
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
+  computed: { ...mapState(['message']) }
 }
 </script>
