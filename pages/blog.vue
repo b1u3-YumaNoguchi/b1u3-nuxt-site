@@ -21,6 +21,10 @@ import B1u3SideBar from '@/components/blog/B1u3SideBar.vue'
 export default {
   components: {
     B1u3SideBar
+  },
+  async fetch ({ store }) {
+    await store.dispatch('get_updated_posts')
+    await store.dispatch('get_posts')
   }
 }
 </script>

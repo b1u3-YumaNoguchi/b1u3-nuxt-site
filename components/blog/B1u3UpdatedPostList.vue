@@ -12,6 +12,11 @@
         </tr>
       </thead>
       <tbody>
+        <tr v-for="(post_name, index) in $store.state.updated_posts" :key="index">
+          <td>
+            {{ post_name }}
+          </td>
+        </tr>
         <tr>
           <td>
             Updated&nbsp;post1
@@ -29,13 +34,10 @@
         </tr>
       </tbody>
     </v-simple-table>
-    <p> message: {{ $store.state }} </p>
   </div>
 </template>
 
 <script>
-import { mapState } from 'vuex'
 export default {
-  computed: { ...mapState(['message']) }
 }
 </script>

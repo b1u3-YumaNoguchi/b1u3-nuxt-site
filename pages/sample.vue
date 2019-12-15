@@ -25,6 +25,7 @@
     <v-btn @click="$store.dispatch('increment')">
       increment
     </v-btn>
+    <p> state: {{ $store.state }} </p>
   </div>
 </template>
 
@@ -39,6 +40,11 @@ export default {
     }
   },
   computed: { ...mapState(['counter']) },
+  async fetch ({ store }) {
+    await store.dispatch('set_message')
+    await store.dispatch('get_updated_posts')
+    await store.dispatch('get_posts')
+  },
   methods: {
     async readFromFirestore () {
       const messageRef = this.$fireStore.collection('message').doc('message')

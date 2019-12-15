@@ -1,6 +1,7 @@
 export const state = () => ({
   counter: 0,
   updated_posts: [],
+  posts: [],
   message: ''
 })
 
@@ -14,6 +15,9 @@ export const mutations = {
   },
   updated_posts_push (state, name) {
     state.updated_posts.push(name)
+  },
+  posts_push (state, post) {
+    state.posts.push({ title: post.title, content: post.content, date: post.date.toDate().toLocaleString() })
   }
 }
 
@@ -38,6 +42,15 @@ export const actions = {
         snapshot.forEach((doc) => {
           // console.log(doc.data().name)
           commit('updated_posts_push', doc.data().name)
+        })
+      })
+  },
+  async get_posts ({ commit }) {
+    const postsRef = this.$fireStore.collection('blog')
+    await postsRef.get()
+      .then((snapshot) => {
+        snapshot.forEach((doc) => {
+          commit('posts_push', doc.data())
         })
       })
   }
