@@ -11,6 +11,9 @@ export const mutations = {
   },
   set_message (state, msg) {
     state.message = msg
+  },
+  updated_posts_push (state, name) {
+    state.updated_posts.push(name)
   }
 }
 
@@ -19,7 +22,23 @@ export const actions = {
   increment (context) {
     context.commit('increment')
   },
-  set_message ({ commit }, msg) {
-    commit('set_message', msg)
+  async set_message ({ commit }, msg) {
+    const messageRef = this.$fireStore.collection('message').doc('message')
+    try {
+      const messageDoc = await messageRef.get()
+      commit('set_message', messageDoc.data().message)
+    } catch (e) {
+      alert(e)
+    }
+  },
+  async get_updated_posts ({ commit }) {
+    const updatedPostsRef = this.$fireStore.collection('updated_posts')
+    await updatedPostsRef.get()
+      .then((snapshot) => {
+        snapshot.forEach((doc) => {
+          // console.log(doc.data().name)
+          commit('updated_posts_push', doc.data().name)
+        })
+      })
   }
 }
