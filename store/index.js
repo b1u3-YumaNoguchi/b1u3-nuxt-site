@@ -17,7 +17,11 @@ export const mutations = {
     state.updated_posts.push(name)
   },
   posts_push (state, post) {
-    state.posts.push({ title: post.title, content: post.content, date: post.date.toDate().toLocaleString() })
+    const date = post.date.toDate()
+    const hours = date.getHours()
+    const minutes = date.getMinutes()
+    const formattedDate = `${date.getFullYear()}-${(date.getMonth() + 1).toString().padStart(2, '0')}-${date.getDate().toString().padStart(2, '0')} ${hours < 10 ? '0' + hours : hours}:${minutes < 10 ? '0' + minutes : minutes}`
+    state.posts.push({ title: post.title, content: post.content, date: formattedDate })
   }
 }
 

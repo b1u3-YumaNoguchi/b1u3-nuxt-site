@@ -1,1 +1,2 @@
-[ ] storeのアクションに、非同期でfirebaseからmessageを取ってくるサンプルをpages/sample.vueに実装する
+[x] storeのアクションに、非同期でfirebaseからmessageを取ってくるサンプルをpages/sample.vueに実装する
+[x] B1u3Postコンポーネントの日付のフォーマットを整える
