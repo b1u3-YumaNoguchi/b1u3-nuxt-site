@@ -1,7 +1,9 @@
+import Vue from 'vue'
 export const state = () => ({
   counter: 0,
   updated_posts: [],
   posts: [],
+  posts_with_key: {},
   message: ''
 })
 
@@ -22,6 +24,13 @@ export const mutations = {
     const minutes = date.getMinutes()
     const formattedDate = `${date.getFullYear()}-${(date.getMonth() + 1).toString().padStart(2, '0')}-${date.getDate().toString().padStart(2, '0')} ${hours < 10 ? '0' + hours : hours}:${minutes < 10 ? '0' + minutes : minutes}`
     state.posts.push({ title: post.title, content: post.content, date: formattedDate })
+  },
+  posts_push_with_key (state, payload) {
+    const date = payload.post.date.toDate()
+    const hours = date.getHours()
+    const minutes = date.getMinutes()
+    const formattedDate = `${date.getFullYear()}-${(date.getMonth() + 1).toString().padStart(2, '0')}-${date.getDate().toString().padStart(2, '0')} ${hours < 10 ? '0' + hours : hours}:${minutes < 10 ? '0' + minutes : minutes}`
+    Vue.set(state.posts_with_key, payload.key, { title: payload.post.title, content: payload.post.content, date: formattedDate })
   }
 }
 
@@ -55,6 +64,15 @@ export const actions = {
       .then((snapshot) => {
         snapshot.forEach((doc) => {
           commit('posts_push', doc.data())
+        })
+      })
+  },
+  async get_posts_with_key ({ commit }) {
+    const postsRef = this.$fireStore.collection('blog')
+    await postsRef.get()
+      .then((snapshot) => {
+        snapshot.forEach((doc) => {
+          commit('posts_push_with_key', { key: doc.id, post: doc.data() })
         })
       })
   }
