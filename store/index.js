@@ -4,6 +4,8 @@ export const state = () => ({
   updated_posts: [],
   posts: [],
   posts_with_key: {},
+  // ブログのキー: チェック params のチェックで使用するやつ
+  keys: [],
   message: ''
 })
 
@@ -31,6 +33,7 @@ export const mutations = {
     const minutes = date.getMinutes()
     const formattedDate = `${date.getFullYear()}-${(date.getMonth() + 1).toString().padStart(2, '0')}-${date.getDate().toString().padStart(2, '0')} ${hours < 10 ? '0' + hours : hours}:${minutes < 10 ? '0' + minutes : minutes}`
     Vue.set(state.posts_with_key, payload.key, { title: payload.post.title, content: payload.post.content, date: formattedDate })
+    state.keys.push(payload.key)
   }
 }
 

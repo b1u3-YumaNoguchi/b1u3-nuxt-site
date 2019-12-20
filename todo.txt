@@ -1,3 +1,7 @@
 [x] storeのアクションに、非同期でfirebaseからmessageを取ってくるサンプルをpages/sample.vueに実装する
 [x] B1u3Postコンポーネントの日付のフォーマットを整える
-[ ] vuex store の記事の state をキー付きにする
+[x] vuex store の記事の state をキー付きにする
+[x] B1u3Post に個々の記事を表示できるようにする
+[ ] 記事のリンク貼る
+[ ] B1u3Postにカテゴリーを入れられるようにする
+[ ] B1u3Post が表示されるページのURLバリデーション

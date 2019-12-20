@@ -5,8 +5,8 @@
     </h1>
     <b1u3-post />
     <b1u3-post
-      v-for="(post, index) in $store.state.posts"
-      :key="index"
+      v-for="(post, id) in $store.state.posts_with_key"
+      :key="id"
       :title="post.title"
       :content="post.content"
       :date="post.date"
