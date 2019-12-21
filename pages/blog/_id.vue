@@ -1,5 +1,5 @@
 <template>
-  <b1u3-post :title="title" :content="content" :date="date" />
+  <b1u3-post :id="$route.params.id" :title="title" :content="content" :date="date" />
 </template>
 
 <script>
@@ -9,20 +9,9 @@ export default {
   validate ({ params, store }) {
     // URL のバリデーション
     // return /^\d+$/.test(params.id)
-  /*
-    console.log('includes: ', store.state.keys.includes(params.id))
-    console.log(store.state.keys)
-    console.log('counter: ', store.state.counter)
-    for (const k in store.state.keys) {
-      if (k === params.id) {
-        return true
-      }
-    }
-    return false
-  */
-    // console.log('keys: ', store.state.abc)
-    // return store.state.keys(key => key === params.id)
-    return true
+    // priority queue が使える
+    // console.log('posts_with_key: ', store.state.posts_with_key)
+    return store.state.keys.includes(params.id)
   },
   components: {
     B1u3Post

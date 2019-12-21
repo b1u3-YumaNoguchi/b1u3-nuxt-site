@@ -78,5 +78,8 @@ export const actions = {
           commit('posts_push_with_key', { key: doc.id, post: doc.data() })
         })
       })
+  },
+  async nuxtServerInit ({ dispatch }) {
+    await dispatch('get_posts_with_key')
   }
 }
