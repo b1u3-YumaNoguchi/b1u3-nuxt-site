@@ -5,7 +5,9 @@
     </p>
     <v-divider />
     <h3>
-      {{ title }}
+      <a @click="$router.push('/blog/'+id)">
+        {{ title }}
+      </a>
     </h3>
     <v-chip x-small color="red" text-color="white">
       カテゴリー1
@@ -39,6 +41,12 @@ export default {
       type: String,
       default () {
         return 'YYYY-MM-DD'
+      }
+    },
+    id: {
+      type: String,
+      default () {
+        return '0'
       }
     }
   }
