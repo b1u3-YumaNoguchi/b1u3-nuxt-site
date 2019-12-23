@@ -6,7 +6,8 @@ export const state = () => ({
   posts_with_key: {},
   // ブログのキー: チェック params のチェックで使用するやつ
   keys: [],
-  message: ''
+  message: '',
+  categories: {}
 })
 
 // mutations は store の state を変える関数群
@@ -34,6 +35,9 @@ export const mutations = {
     const formattedDate = `${date.getFullYear()}-${(date.getMonth() + 1).toString().padStart(2, '0')}-${date.getDate().toString().padStart(2, '0')} ${hours < 10 ? '0' + hours : hours}:${minutes < 10 ? '0' + minutes : minutes}`
     Vue.set(state.posts_with_key, payload.key, { title: payload.post.title, content: payload.post.content, date: formattedDate })
     state.keys.push(payload.key)
+  },
+  set_categories (state, payload) {
+    Vue.set(state.categories, payload.id, payload.name)
   }
 }
 
@@ -81,5 +85,14 @@ export const actions = {
   },
   async nuxtServerInit ({ dispatch }) {
     await dispatch('get_posts_with_key')
+  },
+  async get_categories ({ commit }) {
+    const categoriesRef = this.$fireStore.collection('category')
+    await categoriesRef.get()
+      .then((snapshot) => {
+        snapshot.forEach((doc) => {
+          commit('set_categories', { id: doc.id, name: doc.data().name })
+        })
+      })
   }
 }
