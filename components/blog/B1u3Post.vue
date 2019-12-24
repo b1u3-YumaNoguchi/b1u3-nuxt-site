@@ -9,11 +9,15 @@
         {{ title }}
       </a>
     </h3>
-    <v-chip x-small color="red" text-color="white">
-      カテゴリー1
-    </v-chip>
-    <v-chip x-small color="green" text-color="white">
-      カテゴリー2
+    <v-chip
+      v-for="(category_id, ind) in $store.state.posts_with_key[id].categories"
+      :key="ind"
+      x-small
+      :color="$store.state.categories[category_id].color"
+      :text-color="$store.state.categories[category_id].text_color"
+      class="ms-1"
+    >
+      {{ $store.state.categories[category_id].name }}
     </v-chip>
     <p>
       {{ content }}

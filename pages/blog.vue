@@ -26,6 +26,7 @@ export default {
     await store.dispatch('get_updated_posts')
     // await store.dispatch('get_posts')
     await store.dispatch('get_posts_with_key')
+    await store.dispatch('get_categories')
   }
 }
 </script>

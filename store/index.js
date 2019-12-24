@@ -33,11 +33,11 @@ export const mutations = {
     const hours = date.getHours()
     const minutes = date.getMinutes()
     const formattedDate = `${date.getFullYear()}-${(date.getMonth() + 1).toString().padStart(2, '0')}-${date.getDate().toString().padStart(2, '0')} ${hours < 10 ? '0' + hours : hours}:${minutes < 10 ? '0' + minutes : minutes}`
-    Vue.set(state.posts_with_key, payload.key, { title: payload.post.title, content: payload.post.content, date: formattedDate })
+    Vue.set(state.posts_with_key, payload.key, { title: payload.post.title, content: payload.post.content, date: formattedDate, categories: payload.post.category.split(',') })
     state.keys.push(payload.key)
   },
   set_categories (state, payload) {
-    Vue.set(state.categories, payload.id, payload.name)
+    Vue.set(state.categories, payload.id, payload.data)
   }
 }
 
@@ -91,7 +91,7 @@ export const actions = {
     await categoriesRef.get()
       .then((snapshot) => {
         snapshot.forEach((doc) => {
-          commit('set_categories', { id: doc.id, name: doc.data().name })
+          commit('set_categories', { id: doc.id, data: doc.data() })
         })
       })
   }
