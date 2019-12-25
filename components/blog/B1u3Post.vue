@@ -22,6 +22,12 @@
     <p>
       {{ content }}
     </p>
+    <v-row align="center" justify="center">
+      <v-img
+        src="https://s3-ap-northeast-1.amazonaws.com/blog.b1u3/5c51a0a6.jpg"
+        max-width="300"
+      />
+    </v-row>
     <button>コメントを書く</button>
   </div>
 </template>
