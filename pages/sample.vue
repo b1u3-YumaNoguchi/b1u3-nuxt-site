@@ -25,7 +25,29 @@
     <v-btn @click="$store.dispatch('increment')">
       increment
     </v-btn>
-    <p> state: {{ $store.state }} </p>
+    <p> $store.state: </p>
+    <table style="border: solid 1px #333">
+      <tr>
+        <th style="border: solid 1px #333">
+          KEYS
+        </th>
+        <th style="border: solid 1px #333">
+          VALUES
+        </th>
+      </tr>
+      <tr v-for="(value, key) in $store.state" :key="key" style="border: solid 1px #333">
+        <th style="border: solid 1px #333">
+          {{ key }}
+        </th>
+        <th style="border: solid 1px #333">
+          {{ value }}
+        </th>
+      </tr>
+    </table>
+    <h3>
+      rawHtmlのサンプル
+    </h3>
+    <div v-html="rawHtml" />
   </div>
 </template>
 
@@ -36,7 +58,8 @@ export default {
   data () {
     return {
       d: 1,
-      users: []
+      users: [],
+      rawHtml: '<p>Using v-html directive: <span style="color:red">This should be red.</span></p>'
     }
   },
   computed: { ...mapState(['counter']) },
