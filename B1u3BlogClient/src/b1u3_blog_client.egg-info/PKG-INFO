@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: b1u3-blog-client
+Version: 0.0.1
+Summary: ブログ書く用のクライアントプログラム群
+Home-page: UNKNOWN
+Author: b1u3(Yuma Noguchi)
+License: UNKNOWN
+Description: # B1u3 Blog Client
+        ブログ作成用のクライアント
+        
+Platform: UNKNOWN
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
