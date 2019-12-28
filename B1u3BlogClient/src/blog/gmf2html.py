@@ -1,5 +1,6 @@
 import markdown
 from mdx_gfm import GithubFlavoredMarkdownExtension
+from b1u3markdown.urlchanger import UrlChanger
 """
 入力するファイルのフォーマット
 ```
@@ -19,8 +20,9 @@ def generate():
     title = f.readline()
     categories = f.readline()
     last = f.read()
-    html = markdown.markdown(last,
-                             extensions=[GithubFlavoredMarkdownExtension()])
+    md = markdown.Markdown(extensions=[GithubFlavoredMarkdownExtension()])
+    md.preprocessors['url_changer'] = UrlChanger(md)
+    html = md.convert(last)
     return (title, categories, html)
 
 if __name__ == '__main__':

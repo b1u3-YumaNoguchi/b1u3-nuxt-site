@@ -22,7 +22,7 @@ setup(
     package_dir={'': 'src'},  # Optional
     packages=find_packages(where='src'),  # Required
     python_requires='>=3.7',
-    install_requires=['firebase_admin', 'py-gfm'],
+    install_requires=['firebase_admin', 'py-gfm', 'awscli', 'boto3'],
     # extras_require={  # Optional
     #     'dev': ['check-manifest'],
     #     'test': ['coverage'],
