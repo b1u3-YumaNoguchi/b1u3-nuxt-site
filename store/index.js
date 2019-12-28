@@ -22,17 +22,13 @@ export const mutations = {
     state.updated_posts.push(name)
   },
   posts_push (state, post) {
-    const date = post.date.toDate()
-    const hours = date.getHours()
-    const minutes = date.getMinutes()
-    const formattedDate = `${date.getFullYear()}-${(date.getMonth() + 1).toString().padStart(2, '0')}-${date.getDate().toString().padStart(2, '0')} ${hours < 10 ? '0' + hours : hours}:${minutes < 10 ? '0' + minutes : minutes}`
+    const date = post.date.split('/')
+    const formattedDate = `${date[0]}-${date[1]}-${date[2]} ${date[3]}:${date[4]}`
     state.posts.push({ title: post.title, content: post.content, date: formattedDate })
   },
   posts_push_with_key (state, payload) {
-    const date = payload.post.date.toDate()
-    const hours = date.getHours()
-    const minutes = date.getMinutes()
-    const formattedDate = `${date.getFullYear()}-${(date.getMonth() + 1).toString().padStart(2, '0')}-${date.getDate().toString().padStart(2, '0')} ${hours < 10 ? '0' + hours : hours}:${minutes < 10 ? '0' + minutes : minutes}`
+    const date = payload.post.date.split('/')
+    const formattedDate = `${date[0]}-${date[1]}-${date[2]} ${date[3]}:${date[4]}`
     Vue.set(state.posts_with_key, payload.key, { title: payload.post.title, content: payload.post.content, date: formattedDate, categories: payload.post.category.split(',') })
     state.keys.push(payload.key)
   },

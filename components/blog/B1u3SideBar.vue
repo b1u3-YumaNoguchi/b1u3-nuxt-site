@@ -1,8 +1,8 @@
 <template>
   <div>
-    <h1>
+    <h2>
       プロフィール
-    </h1>
+    </h2>
     <!-- 遅延読み込みの v-img は、自前のassetsから参照できない -->
     <!--
     <v-img
@@ -23,12 +23,16 @@
       append-icon="mdi-magnify"
     />
     <hr>
-    <h1>
+    <h2>
       ツイッターのTL
-    </h1>
-    <h1>
+    </h2>
+    <v-row justify="center">
+      <a class="twitter-timeline" data-width="300" data-height="400" href="https://twitter.com/star_owl_main?ref_src=twsrc%5Etfw">Tweets by star_owl_main</a>
+      <script async src="https://platform.twitter.com/widgets.js" charset="utf-8" />
+    </v-row>
+    <h2>
       カテゴリー
-    </h1>
+    </h2>
     <v-simple-table dense fixed-header>
       <thead>
         <tr>

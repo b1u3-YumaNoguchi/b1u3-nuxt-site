@@ -1,9 +1,9 @@
 <template>
   <v-container class="b1u3-blog-container">
-    <v-row>
+    <v-row ms-2>
       <v-col class="flex-grow-1">
         <h1>
-          TITLE
+          いろんなことで四苦Hack
         </h1>
         <hr>
         <nuxt-child />

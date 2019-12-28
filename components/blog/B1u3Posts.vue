@@ -3,7 +3,9 @@
     <h1>
       POSTS
     </h1>
+    <!--
     <b1u3-post />
+    -->
     <b1u3-post
       v-for="(post, id) in $store.state.posts_with_key"
       :id="id"

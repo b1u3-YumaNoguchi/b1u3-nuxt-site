@@ -19,9 +19,7 @@
     >
       {{ $store.state.categories[category_id].name }}
     </v-chip>
-    <p>
-      {{ content }}
-    </p>
+    <div v-html="content" />
     <v-row align="center" justify="center">
       <v-img
         src="https://s3-ap-northeast-1.amazonaws.com/blog.b1u3/5c51a0a6.jpg"
